@@ -26,11 +26,11 @@ class Card:
             self._label_length = value
     
 
-person_1 = Card(name = "Wiktoria", surname = "Olszewska", email_adress = "WiktoriaOlszewska@armyspy.com")
-person_2 = Card(name = "Eugeniusz", surname = "Kowalski", email_adress = "EugeniuszKowalski@armyspy.com")
-person_3 = Card(name = "Frydrych", surname = "Tomaszewski", email_adress = "FrydrychTomaszewski@armyspy.com")
-person_4 = Card(name = "Franciszka", surname = "Kucharska", email_adress = "FranciszkaKucharska@armyspy.com")
-person_5 = Card(name = "Klementyna", surname = "Czarnecka", email_adress = "KlementynaCzarnecka@armyspy.com")
+person_1 = Card("Wiktoria", "Olszewska", "WiktoriaOlszewska@armyspy.com")
+person_2 = Card("Eugeniusz", "Kowalski", "EugeniuszKowalski@armyspy.com")
+person_3 = Card("Frydrych", "Tomaszewski", "FrydrychTomaszewski@armyspy.com")
+person_4 = Card("Franciszka", "Kucharska", "FranciszkaKucharska@armyspy.com")
+person_5 = Card("Klementyna", "Czarnecka", "KlementynaCzarnecka@armyspy.com")
 
 persons = [person_1, person_2, person_3, person_4, person_5]
 
@@ -41,9 +41,9 @@ for i in persons:
 print()
 
 #Sortowanie po imieniu, nazwisku i adresie email:
-by_name = sorted(persons, key = lambda Business_card: Business_card.name)
-by_surname = sorted(persons, key = lambda Business_card: Business_card.surname)
-by_email_adress = sorted(persons, key = lambda Business_card: Business_card.email_adress)
+by_name = sorted(persons, key = lambda Card: Card.name)
+by_surname = sorted(persons, key = lambda Card: Card.surname)
+by_email_adress = sorted(persons, key = lambda Card: Card.email_adress)
 
 print(by_name)
 print()
@@ -84,11 +84,11 @@ class BaseContact(Card):
     def __contact__(self):
         return f"Wybieram numer: {self.private_phone} i dzownię do: {self.name} {self.surname}"
 
-person_1 = BaseContact(name = "Wiktoria", surname = "Olszewska", email_adress = "WiktoriaOlszewska@armyspy.com", private_phone = "+48 555-666-888")
-person_2 = BaseContact(name = "Eugeniusz", surname = "Kowalski", email_adress = "EugeniuszKowalski@armyspy.com", private_phone = "+48 535-444-789")
-person_3 = BaseContact(name = "Frydrych", surname = "Tomaszewski", email_adress = "FrydrychTomaszewski@armyspy.com", private_phone = "+48 666-098-765")
-person_4 = BaseContact(name = "Franciszka", surname = "Kucharska", email_adress = "FranciszkaKucharska@armyspy.com", private_phone = "+48 456-789-234")
-person_5 = BaseContact(name = "Klementyna", surname = "Czarnecka", email_adress = "KlementynaCzarnecka@armyspy.com", private_phone = "+48 565-789-456")
+person_1 = BaseContact("+48 555-666-888", "Wiktoria", "Olszewska", "WiktoriaOlszewska@armyspy.com")
+person_2 = BaseContact("+48 535-444-789", "Eugeniusz", "Kowalski", "EugeniuszKowalski@armyspy.com")
+person_3 = BaseContact("+48 666-098-765", "Frydrych", "Tomaszewski", "FrydrychTomaszewski@armyspy.com")
+person_4 = BaseContact("+48 456-789-234", "Franciszka", "Kucharska", "FranciszkaKucharska@armyspy.com")
+person_5 = BaseContact("+48 565-789-456", "Klementyna", "Czarnecka", "KlementynaCzarnecka@armyspy.com")
 
 persons = [person_1, person_2, person_3, person_4, person_5]
 
@@ -116,11 +116,11 @@ class BusinessContact(BaseContact):
     def __contact__(self):
         return f"Wybieram numer: {self.business_phone} i dzownię do: {self.name} {self.surname}"
 
-person_1 = BusinessContact(name = "Wiktoria", surname = "Olszewska", private_phone = "+48 555-666-888", business_phone = "+48 777-897-654", company = "FPUH Hołysz", occupation = "Charakteryzatorka", email_adress = "WiktoriaOlszewska@armyspy.com")
-person_2 = BusinessContact(name = "Eugeniusz", surname = "Kowalski", private_phone = "+48 535-444-789", business_phone = "+48 999-456-787", company = "Grupa Andrukiewicz-Gorol Sp.j.", occupation = "Żołnierz", email_adress = "EugeniuszKowalski@armyspy.com")
-person_3 = BusinessContact(name = "Frydrych", surname = "Tomaszewski", private_phone = "+48 666-098-765", business_phone = "+48 345-666-999", company = "Urynowicz S.A.", occupation = "Inżynier", email_adress = "FrydrychTomaszewski@armyspy.com")
-person_4 = BusinessContact(name = "Franciszka", surname = "Kucharska", private_phone = "+48 456-789-234", business_phone = "+48 567-666-987", company = "PPUH Leks Sp.j.", occupation = "Agent literacki", email_adress = "FranciszkaKucharska@armyspy.com")
-person_5 = BusinessContact(name = "Klementyna", surname = "Czarnecka", private_phone = "+48 565-789-456", business_phone = "+48 555-333-444", company = "Spółdzielnia Baszak-Klęczar s.c.", occupation = "Księgowa", email_adress = "KlementynaCzarnecka@armyspy.com")
+person_1 = BusinessContact("+48 777-897-654","FPUH Hołysz", "Charakteryzatorka", "+48 555-666-888", "Wiktoria", "Olszewska", "WiktoriaOlszewska@armyspy.com")
+person_2 = BusinessContact("+48 999-456-787", "Grupa Andrukiewicz-Gorol Sp.j.", "Żołnierz", "+48 535-444-789", "Eugeniusz","Kowalski", "EugeniuszKowalski@armyspy.com")
+person_3 = BusinessContact("+48 345-666-999", "Urynowicz S.A.", "Inżynier", "+48 666-098-765", "Frydrych", "Tomaszewski", "FrydrychTomaszewski@armyspy.com")
+person_4 = BusinessContact("+48 567-666-987", "PPUH Leks Sp.j.", "Agent literacki", "+48 456-789-234", "Franciszka", "Kucharska","FranciszkaKucharska@armyspy.com")
+person_5 = BusinessContact("+48 555-333-444", "Spółdzielnia Baszak-Klęczar s.c.", "Księgowa","+48 565-789-456", "Klementyna", "Czarnecka", "KlementynaCzarnecka@armyspy.com")
 
 
 #Zastosowanie mwtody contact() w klasie biznesowej BusinessContact:
