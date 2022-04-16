@@ -20,10 +20,6 @@ class Card:
     def label_length(self):
         return self._label_length
 
-    @label_length.setter
-    def label_length(self,value):
-        if value == len(self.name + " " + self.surname):
-            self._label_length = value
     
 
 person_1 = Card("Wiktoria", "Olszewska", "WiktoriaOlszewska@armyspy.com")
@@ -141,18 +137,14 @@ print()
 from faker import Faker
 fake = Faker("pl_PL")
 
-def create_contacts():
-    
-    type = input(f"Jaki rodzaj wizytówki chcesz wygenerować: Prywatna / Biznesowa: ")
-    how_many = int(input(f"Podaj ile wizytówek chcesz wygenerować: "))
+def create_contacts(how_many, type):
 
-    if type == "Prywatna":
+    if type == 'Prywatna':
         for i in range(how_many):
-            print(f"Prywatna wizytówka: {fake.first_name()} {fake.last_name()}, {fake.phone_number()}, {fake.email()}")
-    if type == "Biznesowa":
+            print(BaseContact(fake.phone_number(), fake.first_name(), fake.last_name(), fake.email()))
+    if type == 'Biznesowa':
         for i in range(how_many):
-            print(f"Biznesowa wizytówka: {fake.first_name()} {fake.last_name()}, {fake.phone_number()}, {fake.email()}, {fake.company()}, {fake.job()}")
-
+            print(BusinessContact(fake.phone_number(), fake.company(), fake.job(), fake.phone_number(), fake.first_name(), fake.last_name(), fake.email()))
 
 if __name__ == "__main__":
-    create_contacts()
+    (create_contacts(5,'Biznesowa'))
